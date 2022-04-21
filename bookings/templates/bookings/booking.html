@@ -1,0 +1,6 @@
+<h1>{{ booking.title }}</h1>
+<ul>
+{% for attendant in booking.attendants.all %}
+    <li>{{ attendant }}</li>
+{% endfor %}
+</ul>

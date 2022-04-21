@@ -1,0 +1,9 @@
+{% if booking_list %}
+    <ul>
+    {% for booking in booking_list %}
+        <li><a href="{{ booking.id }}/">{{ booking.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No booking are available.</p>
+{% endif %}
