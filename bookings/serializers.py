@@ -6,19 +6,23 @@ class MemberSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Member
         fields = ['alias']
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     member = MemberSerializer()
     class Meta:
         model = User
         fields = ['url', 'username', 'email', 'groups', 'member']
+
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
         fields = ['url', 'name']
+
 class BookingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Booking
         fields = ['url', 'title', 'description', 'creator', 'max_participants', 'start_date', 'end_date', 'attendants']
+
 class TableSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Table
