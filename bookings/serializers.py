@@ -21,7 +21,7 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class BookingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Booking
-        fields = ['url', 'title', 'description', 'creator', 'max_participants', 'start_date', 'end_date', 'attendants']
+        fields = ['url', 'title', 'description', 'creator', 'max_participants', 'start_date', 'end_date', 'attendants', 'table']
 
 class TableSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
