@@ -9,6 +9,5 @@ router.register(r'tables', views.TableViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api-auth/change_password/<int:pk>/', views.ChangePasswordView.as_view(), name='auth_change_password'),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
