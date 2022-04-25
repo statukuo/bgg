@@ -1,7 +1,7 @@
 from .models import Booking, Member, Table
-from .serializers import BookingSerializer, TableSerializer, UserSerializer, GroupSerializer
+from .serializers import BookingSerializer, ChangePasswordSerializer, TableSerializer, UserSerializer, GroupSerializer
 from django.contrib.auth.models import Group, User
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework.authentication import TokenAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import action
@@ -50,3 +50,9 @@ class BookingViewSet(viewsets.ModelViewSet):
         booking.attendants.remove(request.user)
         booking.save()
         return Response({})
+
+class ChangePasswordView(generics.UpdateAPIView):
+    queryset = User.objects.all()
+    authentication_classes = [TokenAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    serializer_class = ChangePasswordSerializer
