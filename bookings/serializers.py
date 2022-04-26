@@ -26,4 +26,4 @@ class BookingSerializer(serializers.HyperlinkedModelSerializer):
 class TableSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Table
-        fields = ['url', 'name', 'description', 'active']
+        fields = ['url', 'id', 'name', 'description', 'active']
